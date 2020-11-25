@@ -47,5 +47,18 @@ namespace Recruitment.Views
             selectedArticle = (ArticleModel)ArticlesListBox.SelectedItem;
         }
 
+        private void DeleteArticleButton_Click(object sender, EventArgs e)
+        {
+            if (selectedArticle != null)
+            {
+                GlobalConfig.Connection.DeteleArticle(selectedArticle.Id, _headerId);
+                availableArticles.Remove(selectedArticle);
+                WireUpArticlesListBox();
+            }
+            else
+            {
+                MessageBox.Show("Select Article");
+            }
+        }
     }
 }

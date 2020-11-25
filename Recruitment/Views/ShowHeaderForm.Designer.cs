@@ -124,6 +124,7 @@ namespace Recruitment.Views
             this.DeleteArticleButton.TabIndex = 9;
             this.DeleteArticleButton.Text = "Delete Article";
             this.DeleteArticleButton.UseVisualStyleBackColor = true;
+            this.DeleteArticleButton.Click += new System.EventHandler(this.DeleteArticleButton_Click);
             // 
             // UpdateArticleButton
             // 

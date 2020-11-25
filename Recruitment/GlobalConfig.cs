@@ -7,6 +7,8 @@ namespace Recruitment
     {
         public static HeaderModel NewHeader = null;
         public static ArticleModel NewArticle = null;
+        public static float NewNet = 0f;
+
 
 
         public static readonly float VAT = 1.23f;

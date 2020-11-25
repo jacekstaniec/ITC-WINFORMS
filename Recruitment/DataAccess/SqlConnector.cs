@@ -55,7 +55,7 @@ namespace Recruitment.DataAccess
             {
                 var query = $"DELETE Articles WHERE id = '{articleId}'";
                 connection.Execute(query);
-                MessageBox.Show($"Header {articleId} deleted successfully.");
+                MessageBox.Show($"Article {articleId} deleted successfully.");
             }
             UpdateHeader(headerId);
         }
@@ -116,14 +116,13 @@ namespace Recruitment.DataAccess
             }
         }
 
-
         private void UpdateHeader(int headerId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionStr()))
             {
                 var query = $"SELECT sum(quantity*net) FROM Articles WHERE headerid='{headerId}'";
                 var net = connection.ExecuteScalar(query);
-                MessageBox.Show($" new net for header {headerId} = {net}");
+                GlobalConfig.NewNet = (float) net;
             }
         }
     }
