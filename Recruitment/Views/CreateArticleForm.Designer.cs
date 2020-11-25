@@ -38,12 +38,14 @@ namespace Recruitment.Views
             this.QuantityValue = new System.Windows.Forms.TextBox();
             this.ArticleNameLabel = new System.Windows.Forms.Label();
             this.ArticleNameValue = new System.Windows.Forms.TextBox();
+            this.AddUpdateArticleLabel = new System.Windows.Forms.Label();
+            this.UpdateArticleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NetLabel
             // 
             this.NetLabel.AutoSize = true;
-            this.NetLabel.Location = new System.Drawing.Point(60, 192);
+            this.NetLabel.Location = new System.Drawing.Point(38, 203);
             this.NetLabel.Name = "NetLabel";
             this.NetLabel.Size = new System.Drawing.Size(24, 13);
             this.NetLabel.TabIndex = 26;
@@ -51,7 +53,7 @@ namespace Recruitment.Views
             // 
             // NetValue
             // 
-            this.NetValue.Location = new System.Drawing.Point(138, 189);
+            this.NetValue.Location = new System.Drawing.Point(116, 200);
             this.NetValue.Name = "NetValue";
             this.NetValue.Size = new System.Drawing.Size(200, 20);
             this.NetValue.TabIndex = 25;
@@ -59,7 +61,7 @@ namespace Recruitment.Views
             // HeaderLabel
             // 
             this.HeaderLabel.AutoSize = true;
-            this.HeaderLabel.Location = new System.Drawing.Point(60, 40);
+            this.HeaderLabel.Location = new System.Drawing.Point(38, 51);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Size = new System.Drawing.Size(54, 13);
             this.HeaderLabel.TabIndex = 24;
@@ -67,25 +69,27 @@ namespace Recruitment.Views
             // 
             // HeaderIdValue
             // 
-            this.HeaderIdValue.Location = new System.Drawing.Point(138, 37);
+            this.HeaderIdValue.Enabled = false;
+            this.HeaderIdValue.Location = new System.Drawing.Point(116, 48);
             this.HeaderIdValue.Name = "HeaderIdValue";
+            this.HeaderIdValue.ReadOnly = true;
             this.HeaderIdValue.Size = new System.Drawing.Size(200, 20);
             this.HeaderIdValue.TabIndex = 23;
             // 
             // AddArticleButton
             // 
-            this.AddArticleButton.Location = new System.Drawing.Point(222, 259);
+            this.AddArticleButton.Location = new System.Drawing.Point(200, 254);
             this.AddArticleButton.Name = "AddArticleButton";
             this.AddArticleButton.Size = new System.Drawing.Size(116, 23);
-            this.AddArticleButton.TabIndex = 22;
-            this.AddArticleButton.Text = "Add Article";
+            this.AddArticleButton.TabIndex = 0;
+            this.AddArticleButton.Text = "Add";
             this.AddArticleButton.UseVisualStyleBackColor = true;
-            this.AddArticleButton.Click += new System.EventHandler(this.AddArticleButton_Click);
+            this.AddArticleButton.Click += new System.EventHandler(this.AddNewArticleButton_Click);
             // 
             // QuantityLabel
             // 
             this.QuantityLabel.AutoSize = true;
-            this.QuantityLabel.Location = new System.Drawing.Point(60, 142);
+            this.QuantityLabel.Location = new System.Drawing.Point(38, 153);
             this.QuantityLabel.Name = "QuantityLabel";
             this.QuantityLabel.Size = new System.Drawing.Size(46, 13);
             this.QuantityLabel.TabIndex = 21;
@@ -93,7 +97,7 @@ namespace Recruitment.Views
             // 
             // QuantityValue
             // 
-            this.QuantityValue.Location = new System.Drawing.Point(138, 139);
+            this.QuantityValue.Location = new System.Drawing.Point(116, 150);
             this.QuantityValue.Name = "QuantityValue";
             this.QuantityValue.Size = new System.Drawing.Size(200, 20);
             this.QuantityValue.TabIndex = 20;
@@ -101,7 +105,7 @@ namespace Recruitment.Views
             // ArticleNameLabel
             // 
             this.ArticleNameLabel.AutoSize = true;
-            this.ArticleNameLabel.Location = new System.Drawing.Point(60, 95);
+            this.ArticleNameLabel.Location = new System.Drawing.Point(38, 106);
             this.ArticleNameLabel.Name = "ArticleNameLabel";
             this.ArticleNameLabel.Size = new System.Drawing.Size(67, 13);
             this.ArticleNameLabel.TabIndex = 19;
@@ -109,16 +113,40 @@ namespace Recruitment.Views
             // 
             // ArticleNameValue
             // 
-            this.ArticleNameValue.Location = new System.Drawing.Point(138, 92);
+            this.ArticleNameValue.Location = new System.Drawing.Point(116, 103);
             this.ArticleNameValue.Name = "ArticleNameValue";
             this.ArticleNameValue.Size = new System.Drawing.Size(200, 20);
             this.ArticleNameValue.TabIndex = 18;
+            // 
+            // AddUpdateArticleLabel
+            // 
+            this.AddUpdateArticleLabel.AutoSize = true;
+            this.AddUpdateArticleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddUpdateArticleLabel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddUpdateArticleLabel.Location = new System.Drawing.Point(24, 17);
+            this.AddUpdateArticleLabel.Name = "AddUpdateArticleLabel";
+            this.AddUpdateArticleLabel.Size = new System.Drawing.Size(119, 17);
+            this.AddUpdateArticleLabel.TabIndex = 27;
+            this.AddUpdateArticleLabel.Text = "Add new article";
+            // 
+            // UpdateArticleButton
+            // 
+            this.UpdateArticleButton.Location = new System.Drawing.Point(78, 254);
+            this.UpdateArticleButton.Name = "UpdateArticleButton";
+            this.UpdateArticleButton.Size = new System.Drawing.Size(116, 23);
+            this.UpdateArticleButton.TabIndex = 0;
+            this.UpdateArticleButton.Text = "Update";
+            this.UpdateArticleButton.UseVisualStyleBackColor = true;
+            this.UpdateArticleButton.Visible = false;
+            this.UpdateArticleButton.Click += new System.EventHandler(this.UpdateArticleButton_Click);
             // 
             // CreateArticleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(384, 312);
+            this.Controls.Add(this.UpdateArticleButton);
+            this.Controls.Add(this.AddUpdateArticleLabel);
             this.Controls.Add(this.NetLabel);
             this.Controls.Add(this.NetValue);
             this.Controls.Add(this.HeaderLabel);
@@ -146,5 +174,7 @@ namespace Recruitment.Views
         private System.Windows.Forms.TextBox QuantityValue;
         private System.Windows.Forms.Label ArticleNameLabel;
         private System.Windows.Forms.TextBox ArticleNameValue;
+        private System.Windows.Forms.Label AddUpdateArticleLabel;
+        private System.Windows.Forms.Button UpdateArticleButton;
     }
 }

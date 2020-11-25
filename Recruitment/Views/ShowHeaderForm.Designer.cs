@@ -39,7 +39,14 @@ namespace Recruitment.Views
             this.ArticlesListBox = new System.Windows.Forms.ListBox();
             this.DeleteArticleButton = new System.Windows.Forms.Button();
             this.UpdateArticleButton = new System.Windows.Forms.Button();
-            this.ShowArticleButton = new System.Windows.Forms.Button();
+            this.NetValue = new System.Windows.Forms.TextBox();
+            this.NetLabel = new System.Windows.Forms.Label();
+            this.ArticleNetValue = new System.Windows.Forms.TextBox();
+            this.ArticleNetLabel = new System.Windows.Forms.Label();
+            this.ArticleGrossLabel = new System.Windows.Forms.Label();
+            this.ArticleGrossValue = new System.Windows.Forms.TextBox();
+            this.ArticleQuantityLabel = new System.Windows.Forms.Label();
+            this.ArticleQuantityValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // DateLabel
@@ -118,7 +125,7 @@ namespace Recruitment.Views
             // 
             // DeleteArticleButton
             // 
-            this.DeleteArticleButton.Location = new System.Drawing.Point(624, 93);
+            this.DeleteArticleButton.Location = new System.Drawing.Point(624, 66);
             this.DeleteArticleButton.Name = "DeleteArticleButton";
             this.DeleteArticleButton.Size = new System.Drawing.Size(116, 23);
             this.DeleteArticleButton.TabIndex = 9;
@@ -128,28 +135,99 @@ namespace Recruitment.Views
             // 
             // UpdateArticleButton
             // 
-            this.UpdateArticleButton.Location = new System.Drawing.Point(624, 122);
+            this.UpdateArticleButton.Location = new System.Drawing.Point(624, 95);
             this.UpdateArticleButton.Name = "UpdateArticleButton";
             this.UpdateArticleButton.Size = new System.Drawing.Size(116, 23);
             this.UpdateArticleButton.TabIndex = 10;
             this.UpdateArticleButton.Text = "Update Article";
             this.UpdateArticleButton.UseVisualStyleBackColor = true;
+            this.UpdateArticleButton.Click += new System.EventHandler(this.UpdateArticleButton_Click);
             // 
-            // ShowArticleButton
+            // NetValue
             // 
-            this.ShowArticleButton.Location = new System.Drawing.Point(624, 64);
-            this.ShowArticleButton.Name = "ShowArticleButton";
-            this.ShowArticleButton.Size = new System.Drawing.Size(116, 23);
-            this.ShowArticleButton.TabIndex = 11;
-            this.ShowArticleButton.Text = "Show Article";
-            this.ShowArticleButton.UseVisualStyleBackColor = true;
+            this.NetValue.Enabled = false;
+            this.NetValue.Location = new System.Drawing.Point(650, 24);
+            this.NetValue.Name = "NetValue";
+            this.NetValue.ReadOnly = true;
+            this.NetValue.Size = new System.Drawing.Size(74, 20);
+            this.NetValue.TabIndex = 12;
+            // 
+            // NetLabel
+            // 
+            this.NetLabel.AutoSize = true;
+            this.NetLabel.Location = new System.Drawing.Point(647, 8);
+            this.NetLabel.Name = "NetLabel";
+            this.NetLabel.Size = new System.Drawing.Size(24, 13);
+            this.NetLabel.TabIndex = 13;
+            this.NetLabel.Text = "Net";
+            // 
+            // ArticleNetValue
+            // 
+            this.ArticleNetValue.Enabled = false;
+            this.ArticleNetValue.Location = new System.Drawing.Point(666, 175);
+            this.ArticleNetValue.Name = "ArticleNetValue";
+            this.ArticleNetValue.ReadOnly = true;
+            this.ArticleNetValue.Size = new System.Drawing.Size(74, 20);
+            this.ArticleNetValue.TabIndex = 14;
+            // 
+            // ArticleNetLabel
+            // 
+            this.ArticleNetLabel.AutoSize = true;
+            this.ArticleNetLabel.Location = new System.Drawing.Point(622, 175);
+            this.ArticleNetLabel.Name = "ArticleNetLabel";
+            this.ArticleNetLabel.Size = new System.Drawing.Size(24, 13);
+            this.ArticleNetLabel.TabIndex = 15;
+            this.ArticleNetLabel.Text = "Net";
+            // 
+            // ArticleGrossLabel
+            // 
+            this.ArticleGrossLabel.AutoSize = true;
+            this.ArticleGrossLabel.Location = new System.Drawing.Point(622, 201);
+            this.ArticleGrossLabel.Name = "ArticleGrossLabel";
+            this.ArticleGrossLabel.Size = new System.Drawing.Size(34, 13);
+            this.ArticleGrossLabel.TabIndex = 17;
+            this.ArticleGrossLabel.Text = "Gross";
+            // 
+            // ArticleGrossValue
+            // 
+            this.ArticleGrossValue.Enabled = false;
+            this.ArticleGrossValue.Location = new System.Drawing.Point(666, 201);
+            this.ArticleGrossValue.Name = "ArticleGrossValue";
+            this.ArticleGrossValue.ReadOnly = true;
+            this.ArticleGrossValue.Size = new System.Drawing.Size(74, 20);
+            this.ArticleGrossValue.TabIndex = 16;
+            // 
+            // ArticleQuantityLabel
+            // 
+            this.ArticleQuantityLabel.AutoSize = true;
+            this.ArticleQuantityLabel.Location = new System.Drawing.Point(622, 149);
+            this.ArticleQuantityLabel.Name = "ArticleQuantityLabel";
+            this.ArticleQuantityLabel.Size = new System.Drawing.Size(46, 13);
+            this.ArticleQuantityLabel.TabIndex = 21;
+            this.ArticleQuantityLabel.Text = "Quantity";
+            // 
+            // ArticleQuantityValue
+            // 
+            this.ArticleQuantityValue.Enabled = false;
+            this.ArticleQuantityValue.Location = new System.Drawing.Point(666, 149);
+            this.ArticleQuantityValue.Name = "ArticleQuantityValue";
+            this.ArticleQuantityValue.ReadOnly = true;
+            this.ArticleQuantityValue.Size = new System.Drawing.Size(74, 20);
+            this.ArticleQuantityValue.TabIndex = 20;
             // 
             // ShowHeaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 350);
-            this.Controls.Add(this.ShowArticleButton);
+            this.Controls.Add(this.ArticleQuantityLabel);
+            this.Controls.Add(this.ArticleQuantityValue);
+            this.Controls.Add(this.ArticleGrossLabel);
+            this.Controls.Add(this.ArticleGrossValue);
+            this.Controls.Add(this.ArticleNetLabel);
+            this.Controls.Add(this.ArticleNetValue);
+            this.Controls.Add(this.NetLabel);
+            this.Controls.Add(this.NetValue);
             this.Controls.Add(this.UpdateArticleButton);
             this.Controls.Add(this.DeleteArticleButton);
             this.Controls.Add(this.ArticlesListBox);
@@ -178,6 +256,13 @@ namespace Recruitment.Views
         private System.Windows.Forms.ListBox ArticlesListBox;
         private System.Windows.Forms.Button DeleteArticleButton;
         private System.Windows.Forms.Button UpdateArticleButton;
-        private System.Windows.Forms.Button ShowArticleButton;
+        private System.Windows.Forms.TextBox NetValue;
+        private System.Windows.Forms.Label NetLabel;
+        private System.Windows.Forms.TextBox ArticleNetValue;
+        private System.Windows.Forms.Label ArticleNetLabel;
+        private System.Windows.Forms.Label ArticleGrossLabel;
+        private System.Windows.Forms.TextBox ArticleGrossValue;
+        private System.Windows.Forms.Label ArticleQuantityLabel;
+        private System.Windows.Forms.TextBox ArticleQuantityValue;
     }
 }

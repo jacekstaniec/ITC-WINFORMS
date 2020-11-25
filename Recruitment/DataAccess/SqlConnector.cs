@@ -82,16 +82,16 @@ namespace Recruitment.DataAccess
             return output;
         }
 
-        public List<ArticleModel> GetAllArticles(int headerid)
+        public List<ArticleModel> GetAllArticles(int headerId)
         {
             List<ArticleModel> output;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionStr()))
             {
-                var query = $"SELECT id, headerid, articlename, quantity, net, gross FROM Articles WHERE headerid='{headerid}'";
+                var query = $"SELECT id, headerid, articlename, quantity, net, gross FROM Articles WHERE headerid='{headerId}'";
                 output = (List<ArticleModel>)connection.Query<ArticleModel>(query);
             }
+            UpdateHeader(headerId);
             return output;
-
         }
 
         public void UpdateArticle(ArticleModel model)
@@ -102,6 +102,7 @@ namespace Recruitment.DataAccess
                 connection.Execute(query);
                 MessageBox.Show($"Article {model.Id} updated successfully.");
             }
+            GlobalConfig.NewArticle = model;
             UpdateHeader(model.HeaderId);
 
         }
@@ -114,6 +115,7 @@ namespace Recruitment.DataAccess
                 connection.Execute(query);
                 MessageBox.Show($"Header {model.Id} updated successfully.");
             }
+            GlobalConfig.NewHeader = model;
         }
 
         private void UpdateHeader(int headerId)
@@ -122,7 +124,7 @@ namespace Recruitment.DataAccess
             {
                 var query = $"SELECT sum(quantity*net) FROM Articles WHERE headerid='{headerId}'";
                 var net = connection.ExecuteScalar(query);
-                GlobalConfig.NewNet = (float) net;
+                GlobalConfig.NewNet = (float)Convert.ToDouble(net);
             }
         }
     }

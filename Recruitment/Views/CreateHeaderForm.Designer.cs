@@ -113,7 +113,7 @@ namespace Recruitment.Views
             // 
             // UpdateHeaderButton
             // 
-            this.UpdateHeaderButton.Location = new System.Drawing.Point(221, 200);
+            this.UpdateHeaderButton.Location = new System.Drawing.Point(99, 200);
             this.UpdateHeaderButton.Name = "UpdateHeaderButton";
             this.UpdateHeaderButton.Size = new System.Drawing.Size(116, 23);
             this.UpdateHeaderButton.TabIndex = 0;

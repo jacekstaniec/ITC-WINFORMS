@@ -20,7 +20,7 @@ namespace Recruitment.Views
         {
             HeadersListBox.DataSource = null;
             HeadersListBox.DataSource = availableHeaders;
-            HeadersListBox.DisplayMember = "IdHeaderName";
+            HeadersListBox.DisplayMember = "HeaderName";
         }
 
         void HeadersListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +70,8 @@ namespace Recruitment.Views
             {
                 var frm = new CreateHeaderForm(selectedHeader);
                 frm.ShowDialog(this);
+                availableHeaders.Remove(selectedHeader);
+                availableHeaders.Add(GlobalConfig.NewHeader);
                 WireUpHeadersListBox();
             }
             else
